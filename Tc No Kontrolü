@@ -1,0 +1,12 @@
+Tc=input("Tc nosu:")
+digits = [int(d) for d in str(Tc)]
+
+sayi=0
+for x in range(0,10):
+    sayi +=digits[x]
+        
+deger=sayi%10
+if deger==digits[10]:
+    print("Tcno doğru")
+else:
+    print("Tcno doğru değil")
