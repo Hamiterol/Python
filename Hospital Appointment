@@ -1,0 +1,109 @@
+import os
+import time
+import datetime
+
+def drisimleri():
+    print("1- Prof. Dr. Ahmet Can")
+    print("2- Doç. Dr. Hikmet Can")
+    print("3- Doç. Dr. Mehmet Can")
+    print("4- Doç. Dr. Zeynep Can")
+    print("5- Prof. Dr. Hakan Can")
+    print("6- Prof. Dr. Hamit Can")
+def dbbilgileri():
+    
+    drisimleri()
+    i=input("Doktor ismini giriniz : ")
+    if i== "1":
+        i="Prof. Dr. Ahmet Can\\"
+        return i
+    else:
+        pass
+    if i== "2":
+        i="Doç. Dr. Hikmet Can\\"
+        return i
+    else:
+        pass
+    if i=="3":
+        i="Doç. Dr. Mehmet Can\\"
+        return i
+    else:
+        pass
+    if i=="4":
+        i="Doç. Dr. Zeynep Can\\"
+        return i
+    else:
+        pass
+    if i=="5":
+        i="Prof. Dr. Hakan Can\\"
+        return i
+    else:
+        pass
+    if i=="6":
+        i="Prof. Dr. Hamit Can\\"
+        return i
+    else:
+        pass
+def tarihklasör():
+    b="C:\\Users\\hamit\Desktop\\PYTHON PROJELERİ\\Hastane\\"
+    tarih=time.strftime('%d-%m-%Y/')
+    yol=b+f+tarih+"database.log"
+    kontrolyol=os.path.dirname(yol)
+    if not os.path.exists(kontrolyol):
+        os.makedirs(kontrolyol)
+    
+    return yol
+
+
+def hastanebilgilerinelog():
+    an=datetime.datetime.now()
+    ansaat=an.hour
+    andakika=an.minute
+    
+    isim=input("Hastanın Adı: ")
+    soyisim=input("Hastanın Soyadı: ")
+    dogumtarih=input("Hastanın Doğum Tarihi: ")
+    
+    if len(dogumtarih)!=10:
+        os.system("cls")
+        print("Hatalı Doğum Tarihi")
+        dogumtarih=input("Hastanın Doğum Tarihi: ")
+    else:
+        pass
+    
+    Tc=input("Hastanın Tc nosu: ")
+    digits = [int(d) for d in str(Tc)]
+
+    sayi=0
+    for x in range(0,10):
+        sayi +=digits[x]
+
+    deger=sayi%10
+    if deger==digits[10]:
+        dosya=open(yol,"a",encoding="utf-8")
+        dosya.write("-----------------------\n")
+        dosya.write("Hasta Kayıt Saati:")
+        dosya.write(str(ansaat))
+        dosya.write(":")
+        dosya.write(str(andakika))
+        dosya.write("\n")
+        dosya.write("Hasta ismi: ")
+        dosya.write(isim+'\n')
+        dosya.write("Hasta soyismi: ")
+        dosya.write(soyisim+'\n')
+        dosya.write("Hasta Doğum Tarihi:")
+        dosya.write(dogumtarih+'\n')
+        dosya.write("Hastanın Tc nosu: ")
+        dosya.write(Tc+'\n')
+        dosya.write("----------------------")
+        dosya.close()
+        print("Randevu kaydedildi")
+    else:
+        print("Randevu kaydedilmedi")
+
+       
+    
+while True:
+    os.system("cls")
+    f=dbbilgileri()
+    yol=tarihklasör()
+    hastanebilgilerinelog()
