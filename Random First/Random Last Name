@@ -1,0 +1,10 @@
+
+import random
+def generator_name():
+    firts_name=["Ahmet","Hikmet","zeynep","Hakan","Basri"]
+    last_name=["Can","Balık","Erol","Kan","Demir"]
+    return "{} {}".format(random.choice(firts_name),random.choice(last_name))
+
+for i in range(5):
+    print(generator_name())
+    
