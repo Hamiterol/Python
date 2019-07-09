@@ -1,0 +1,4 @@
+metin=input("Metin gir:")           
+liste=[metin]
+for öge in liste:
+    print(öge[1])
