@@ -1,0 +1,3 @@
+metin=input("Metin gir:")        
+for a in metin[:-1]:
+    print(a)
